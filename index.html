@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>テトリス「非公式」</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="game-container">
+        <div class="bg-gradient"></div>
+
+        <div class="main-area">
+            <div class="hold-panel glass-panel">
+                <h2>HOLD</h2>
+                <canvas id="hold-canvas" width="100" height="100"></canvas>
+            </div>
+
+            <div class="board-container glass-panel">
+                <canvas id="game-canvas" width="300" height="600"></canvas>
+
+                <div id="start-screen" class="overlay active">
+                    <h1 class="title">TETRIS<br><span class="subtitle">UNOFFICIAL</span></h1>
+                    <button id="start-btn" class="glow-btn">START GAME</button>
+                    <div class="controls-hint">
+                        <p>↑: Hard Drop | ↓: Soft Drop</p>
+                        <p>← →: Move | Z/X: Rotate</p>
+                        <p>Shift: Hold | ESC: Pause</p>
+                    </div>
+                </div>
+
+                <div id="pause-screen" class="overlay hidden">
+                    <h2>PAUSED</h2>
+                    <button id="resume-btn" class="glow-btn">RESUME</button>
+                </div>
+
+                <div id="game-over-screen" class="overlay hidden">
+                    <h2>GAME OVER</h2>
+                    <div class="result-stats">
+                        <p>SCORE: <span id="final-score">0</span></p>
+                        <p>LINES: <span id="final-lines">0</span></p>
+                    </div>
+                    <button id="restart-btn" class="glow-btn">TRY AGAIN</button>
+                </div>
+            </div>
+
+            <div class="info-panel">
+                <div class="next-panel glass-panel">
+                    <h2>NEXT</h2>
+                    <canvas id="next-canvas" width="100" height="300"></canvas>
+                </div>
+
+                <div class="stats-panel glass-panel">
+                    <div class="stat-item">
+                        <h3>SCORE</h3>
+                        <p id="score">0</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>LEVEL</h3>
+                        <p id="level">1</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>LINES</h3>
+                        <p id="lines">0</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>COMBO</h3>
+                        <p id="combo">0</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mobile-controls">
+            <div class="d-pad">
+                <button id="btn-up" class="control-btn">▲</button>
+                <div class="d-pad-middle">
+                    <button id="btn-left" class="control-btn">◀</button>
+                    <button id="btn-down" class="control-btn">▼</button>
+                    <button id="btn-right" class="control-btn">▶</button>
+                </div>
+            </div>
+            <div class="action-buttons">
+                <button id="btn-rot-z" class="control-btn round">Z</button>
+                <button id="btn-rot-x" class="control-btn round">X</button>
+                <button id="btn-hold" class="control-btn round">H</button>
+                <button id="btn-esc" class="control-btn round">P</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
